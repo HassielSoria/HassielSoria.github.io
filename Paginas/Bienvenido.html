@@ -7,12 +7,22 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
+    <style>
+        body{
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
-<body>
+<body background="">
     <h1>Pagina de bienvenida c:</h1>
     <h1 id="mensaje"></h1>
     <h2 id="mensaje2"></h2>
-    <a href="" id="mensaje3"></a>
+    <a href="" id="mensaje3"></a><br>
+    <a href="" id="mensaje4"></a><br>
+    <p id="mensaje5"></p>
+    <p id="mensaje6"></p>
+    <p id="mensaje7"></p>
 </body>
 </html>
 <script>
@@ -57,7 +67,20 @@
         document.getElementById("mensaje3").href= "mailto:" + Correo;
         document.getElementById("mensaje3").innerHTML= "" + Correo;
     }
-    if(getParameter("apellidos")!=null){
-        document.getElementById("mensaje2").innerHTML= "Bienvenido/a " + Apellidos;
+        if(getParameter("Telefono")!=null){
+        document.getElementById("mensaje4").href= "tel:" + Telefono;
+        document.getElementById("mensaje4").innerHTML= "tu telefono es:" + Telefono;
+    }
+        var arr=getParameter("fecha de nacimiento")
+        var arr_split= arr.split("-")
+
+        var num=2023-arr_split[0]
+        document.getElementById("mensaje5").innerHTML= "Tienes " + num + " años";
+        
+        if(getParameter("Contraseña").length<5){
+        document.getElementById("mensaje6").innerHTML= "Tu contraseña es insegura";
+    }
+        if(getParameter("Contraseña").length>5){
+        document.getElementById("mensaje6").innerHTML= "Tu contraseña es segura";
     }
 </script>
